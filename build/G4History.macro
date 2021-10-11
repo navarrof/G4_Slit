@@ -1,0 +1,53 @@
+/tracking/verbose 1
+/run/verbose 1
+/run/initialize
+/vis/open OGL 600x600-0+0
+/vis/sceneHandler/create OGL
+/vis/viewer/create ! ! 600x600-0+0
+/vis/viewer/refresh
+/vis/drawVolume
+/vis/scene/create
+/vis/scene/add/volume world -1 -1 none m 0 0 0 0 0 0
+/vis/sceneHandler/attach
+/vis/scene/add/axes 100 0 0 50 mm
+/vis/scene/notifyHandlers
+/vis/scene/add/volume
+/vis/scene/notifyHandlers
+/vis/geometry/set/visibility logic-world 0 false
+/vis/scene/notifyHandlers
+/vis/viewer/set/background 1. 1. 1. 1.
+/vis/viewer/refresh
+/vis/viewer/set/viewpointThetaPhi 40. 250.
+/vis/viewer/refresh
+/vis/geometry/set/lineWidth all 3.
+/vis/scene/notifyHandlers
+/vis/viewer/set/style wireframe
+/vis/viewer/refresh
+/vis/geometry/set/colour CopperBase-Logical 0.921568 0.61960 0.41960 0.8
+/vis/scene/notifyHandlers
+/vis/geometry/set/colour CopperTop-Logical 0.921568 0.61960 0.41960 0.8
+/vis/scene/notifyHandlers
+/vis/geometry/set/colour Graphite-Logical 0.1 0.1 0.1 0.2
+/vis/scene/notifyHandlers
+/vis/scene/add/trajectories
+/tracking/storeTrajectory 1
+/vis/scene/notifyHandlers
+/vis/scene/add/hits
+/vis/scene/notifyHandlers
+/vis/scene/add/trajectories smooth
+/tracking/storeTrajectory 2
+/vis/scene/notifyHandlers
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/scene/notifyHandlers scene-0
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+/vis/scene/notifyHandlers scene-0
+/vis/scene/endOfEventAction accumulate
+/gun/energy 3 MeV
+/gun/particle proton
+/run/beamOn 50
+/vis/scene/notifyHandlers scene-0
+/vis/viewer/set/style s
+/vis/viewer/refresh
+/vis/viewer/set/hiddenEdge 1
+/vis/viewer/refresh
